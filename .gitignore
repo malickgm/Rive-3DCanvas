@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Next.js
+.next/
+out/
+build/
+next-env.d.ts
+
+# Test artefacts — exported .riv files and models are large, regenerated
+# constantly, and specific to whoever is testing. Drop them into the app at
+# runtime instead of committing them.
+rive-3d-test/public/rive/
+
+# Local Claude Code settings (machine-specific; .mcp.json IS tracked)
+.claude/settings.local.json
+
+# Environment
+.env
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Vercel / TypeScript
+.vercel
+*.tsbuildinfo

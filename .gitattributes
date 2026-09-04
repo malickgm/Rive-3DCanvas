@@ -1,0 +1,37 @@
+# Baseline: let Git detect text and normalise it to LF in the repository.
+# The binary rules below override this and are the ones that matter.
+* text=auto
+
+# Rive and 3D assets are binary. Without this, Git's line-ending conversion on
+# Windows rewrites bytes inside them on checkout and corrupts the file — Rive's
+# own docs call this out for .riv specifically.
+*.riv   binary
+*.rev   binary
+*.glb   binary
+*.gltf  binary
+*.rstb  binary
+*.wasm  binary
+
+# Common binary assets, for the same reason.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.ttf   binary
+*.otf   binary
+*.woff  binary
+*.woff2 binary
+*.mp3   binary
+*.wav   binary
+
+# Normalise text so the repo is consistent across machines.
+*.md    text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.lua   text eol=lf
+*.wgsl  text eol=lf
+
+# Keep generated lockfiles out of diffs and language stats.
+package-lock.json linguist-generated=true -diff
